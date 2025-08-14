@@ -2,11 +2,11 @@ import { MapPin, Navigation, Smartphone } from "lucide-react";
 
 const InteractiveMap = () => {
   const address = "Quinta das 3 Nogueiras – Casa de Campo, Rua da Campina, Vidigão Nascente 68, 2005-117, Santarém";
-  const coords = "39.2369,-8.6879";
+  const coords = "39.3009722,-8.7738924";
   
   const handleNavigate = () => {
     // Universal navigation link that works on all devices
-    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coords}&destination_place_id=ChIJyWEHuEmuHg0RyLEN1F3A`;
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coords}&destination_place_id=ChIJWRt1J3W7Hw0RjkMjkCC0qF8`;
     window.open(googleMapsUrl, '_blank');
   };
 
@@ -43,7 +43,7 @@ const InteractiveMap = () => {
       {/* Interactive Map Embed */}
       <div className="aspect-[4/3] relative">
         <iframe
-          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.8!2d-8.6879!3d39.2369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDE0JzEyLjgiTiA4wrA0MScxNi40Ilc!5e0!3m2!1spt!2spt!4v1645123456789!5m2!1spt!2spt`}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3087.4389657086285!2d-8.7738924!3d39.3009722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18eb5752767b59%3A0xf88aefa090bb438e!2sQuinta%20das%203%20Nogueiras%20-%20Casa%20de%20Campo!5e0!3m2!1spt-BR!2spt!4v1755186359720!5m2!1spt-BR!2spt"
           width="100%"
           height="100%"
           style={{ border: 0 }}
