@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold mb-4">Quinta das Nogueiras</h3>
+            <h3 className="text-2xl font-bold mb-4">Quinta das 3 Nogueiras</h3>
             <p className="text-qdn-surface mb-6 leading-relaxed">
               Refúgio autêntico entre nogueiras centenárias, onde o conforto 
               moderno encontra a tranquilidade rural portuguesa.
@@ -43,9 +43,9 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-qdn-surface mt-0.5 flex-shrink-0" />
                 <span className="text-qdn-surface">
-                  Rua da Campina N°68<br />
-                  Vidigão Nascente, Santarém<br />
-                  Portugal
+                  Quinta das 3 Nogueiras – Casa de Campo<br />
+                  Rua da Campina, Vidigão Nascente 68<br />
+                  2005-117 Santarém, Portugal
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -82,7 +82,7 @@ const Footer = () => {
         <div className="border-t border-qdn-surface/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-qdn-surface text-sm">
-              © {currentYear} Quinta das Nogueiras. Todos os direitos reservados.
+              © {currentYear} Quinta das 3 Nogueiras. Todos os direitos reservados.
             </p>
             <p className="text-qdn-surface text-sm mt-2 md:mt-0">
               Desenvolvido com 💚 para um turismo sustentável
@@ -93,7 +93,7 @@ const Footer = () => {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/351966960101?text=Olá! Gostaria de reservar a Quinta das Nogueiras."
+        href="https://wa.me/351966960101?text=Olá! Gostaria de reservar a Quinta das 3 Nogueiras."
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-40"
         aria-label="Contactar via WhatsApp"
       >

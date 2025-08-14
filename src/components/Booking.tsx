@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Calendar, Users, MessageCircle, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import SeasonalActivitiesGuide from "./SeasonalActivitiesGuide";
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -63,6 +64,11 @@ const Booking = () => {
             Reserve diretamente connosco e garante as melhores condições. 
             Resposta rápida e atendimento personalizado.
           </p>
+        </div>
+
+        {/* Seasonal Activities Guide */}
+        <div className="mb-12">
+          <SeasonalActivitiesGuide checkIn={formData.checkIn} checkOut={formData.checkOut} />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -239,7 +245,7 @@ const Booking = () => {
               </p>
               <div className="space-y-3">
                 <a 
-                  href="https://wa.me/351966960101?text=Olá! Gostaria de reservar a Quinta das Nogueiras."
+                  href="https://wa.me/351966960101?text=Olá! Gostaria de reservar a Quinta das 3 Nogueiras."
                   className="flex items-center space-x-3 p-4 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors"
                 >
                   <MessageCircle className="w-5 h-5 text-green-600" />

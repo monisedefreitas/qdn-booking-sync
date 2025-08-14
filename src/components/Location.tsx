@@ -1,12 +1,13 @@
-import { MapPin, Car, Plane, Train, Mountain, Utensils, Camera, Sun, Waves, TreePine, Calendar, Clock, Compass } from "lucide-react";
+import { Car, Plane, Train, Mountain, Utensils, Camera, Sun, Waves, TreePine, Calendar, Compass } from "lucide-react";
+import InteractiveMap from "./InteractiveMap";
 
 const Location = () => {
   const attractions = [
     {
       icon: Camera,
       name: "Igreja do Santíssimo Milagre",
-      distance: "5 km",
-      description: "Património religioso único de Santarém"
+      distance: "4 km",
+      description: "Património religioso único no mundo"
     },
     {
       icon: Mountain,
@@ -15,16 +16,22 @@ const Location = () => {
       description: "Capital do Gótico português"
     },
     {
-      icon: Camera,
-      name: "Óbidos",
-      distance: "50 km",
-      description: "Vila medieval murada"
+      icon: Mountain,
+      name: "Casa do Brasil",
+      distance: "6 km",
+      description: "História dos Descobrimentos"
     },
     {
-      icon: Waves,
-      name: "Nazaré",
-      distance: "70 km",
-      description: "Praia e ondas gigantes mundialmente famosas"
+      icon: Camera,
+      name: "Portas do Sol",
+      distance: "7 km",
+      description: "Miradouro e jardins históricos"
+    },
+    {
+      icon: Mountain,
+      name: "Mosteiro de Alcobaça",
+      distance: "55 km",
+      description: "Património Mundial UNESCO"
     },
     {
       icon: Mountain,
@@ -33,10 +40,28 @@ const Location = () => {
       description: "Património Mundial UNESCO"
     },
     {
+      icon: Camera,
+      name: "Óbidos",
+      distance: "50 km",
+      description: "Vila medieval murada"
+    },
+    {
       icon: TreePine,
       name: "Fátima",
       distance: "40 km",
       description: "Santuário de peregrinação mundial"
+    },
+    {
+      icon: Waves,
+      name: "Nazaré",
+      distance: "70 km",
+      description: "Ondas gigantes e praia famosa"
+    },
+    {
+      icon: Waves,
+      name: "São Martinho do Porto",
+      distance: "65 km",
+      description: "Lagoa natural protegida"
     }
   ];
 
@@ -103,67 +128,9 @@ const Location = () => {
 
         {/* Main 3-Column Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Column 1: Compact Map */}
+          {/* Column 1: Interactive Map */}
           <div className="fade-in-left">
-            <div className="card-qdn p-0 overflow-hidden h-fit">
-              <div className="bg-gradient-to-br from-qdn-primary/10 to-qdn-primary/5 p-6 border-b border-qdn-border">
-                <div className="flex items-center space-x-3 mb-2">
-                  <MapPin className="w-6 h-6 text-qdn-primary" />
-                  <h3 className="text-qdn-text-dark">
-                    Quinta das Nogueiras
-                  </h3>
-                </div>
-                <p className="text-qdn-text-muted">
-                  Rua da Campina N°68, Vidigão Nascente, Santarém
-                </p>
-              </div>
-              
-              {/* Compact Map */}
-              <div className="aspect-[4/3] bg-qdn-muted flex items-center justify-center">
-                <div className="text-center text-qdn-text-muted">
-                  <MapPin className="w-10 h-10 mx-auto mb-2 opacity-50" />
-                  <p className="text-sm">Mapa Interativo</p>
-                </div>
-              </div>
-              
-              <div className="p-6 space-y-4">
-                <div className="grid grid-cols-1 gap-3 text-sm">
-                  <div className="flex items-center justify-between">
-                    <span className="text-qdn-text-muted">Coordenadas:</span>
-                    <span className="text-qdn-primary font-medium">39.2369, -8.6879</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-qdn-text-muted">Altitude:</span>
-                    <span className="text-qdn-primary font-medium">110 metros</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-qdn-text-muted">Clima:</span>
-                    <span className="text-qdn-primary font-medium">Mediterrânico continental</span>
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-qdn-border">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <Clock className="w-4 h-4 text-qdn-primary" />
-                    <span className="text-sm font-medium text-qdn-text-dark">Distâncias Principais</span>
-                  </div>
-                  <div className="space-y-1 text-xs text-qdn-text-muted">
-                    <div className="flex justify-between">
-                      <span>Lisboa:</span>
-                      <span>80 km</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Porto:</span>
-                      <span>300 km</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Coimbra:</span>
-                      <span>120 km</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <InteractiveMap />
           </div>
 
           {/* Column 2: Attractions */}
@@ -234,11 +201,15 @@ const Location = () => {
                 </li>
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Centro de saúde: Hospital de Santarém (7 km)</span>
+                  <span>Hospital: Hospital de Santarém (7 km)</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Farmácia: Centro de Santarém</span>
+                  <span>Farmácia: Centro de Santarém (6 km)</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                  <span>Gasolineiras: A1 e centro (10 km)</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
