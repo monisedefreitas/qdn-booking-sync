@@ -3,40 +3,40 @@ import { MapPin, Car, Plane, Train, Mountain, Utensils, Camera, Sun, Waves, Tree
 const Location = () => {
   const attractions = [
     {
+      icon: Camera,
+      name: "Igreja do Santíssimo Milagre",
+      distance: "5 km",
+      description: "Património religioso único de Santarém"
+    },
+    {
       icon: Mountain,
-      name: "Serra da Estrela",
-      distance: "45 km",
-      description: "A montanha mais alta de Portugal continental"
+      name: "Centro Histórico de Santarém",
+      distance: "6 km",
+      description: "Capital do Gótico português"
     },
     {
       icon: Camera,
-      name: "Aldeias Históricas",
-      distance: "15-30 km",
-      description: "Monsanto, Idanha-a-Velha, Sortelha"
-    },
-    {
-      icon: Utensils,
-      name: "Restaurante O Albertino",
-      distance: "8 km",
-      description: "Gastronomia regional autêntica"
-    },
-    {
-      icon: Car,
-      name: "Castelo Branco",
-      distance: "25 km",
-      description: "Centro urbano com todos os serviços"
+      name: "Óbidos",
+      distance: "50 km",
+      description: "Vila medieval murada"
     },
     {
       icon: Waves,
-      name: "Praia Fluvial de Monsanto",
-      distance: "18 km",
-      description: "Águas cristalinas no verão"
+      name: "Nazaré",
+      distance: "70 km",
+      description: "Praia e ondas gigantes mundialmente famosas"
+    },
+    {
+      icon: Mountain,
+      name: "Mosteiro da Batalha",
+      distance: "45 km",
+      description: "Património Mundial UNESCO"
     },
     {
       icon: TreePine,
-      name: "Parque Natural do Tejo",
-      distance: "35 km",
-      description: "Trilhas e observação de aves"
+      name: "Fátima",
+      distance: "40 km",
+      description: "Santuário de peregrinação mundial"
     }
   ];
 
@@ -44,19 +44,19 @@ const Location = () => {
     {
       icon: Car,
       title: "De Carro",
-      details: "A23 saída Idanha-a-Nova (15 min)",
-      time: "2h30 desde Lisboa"
+      details: "A1 saída Santarém (10 min)",
+      time: "1h desde Lisboa"
     },
     {
       icon: Train,
-      title: "Comboio + Carro",
-      details: "CP até Castelo Branco + 25 km",
-      time: "3h desde Lisboa"
+      title: "Comboio + Táxi",
+      details: "CP até Santarém + transporte local",
+      time: "1h30 desde Lisboa"
     },
     {
       icon: Plane,
       title: "Avião",
-      details: "Aeroporto de Covilhã (60 km)",
+      details: "Aeroporto de Lisboa (80 km)",
       time: "1h voo + 1h carro"
     }
   ];
@@ -65,26 +65,26 @@ const Location = () => {
     {
       season: "Primavera",
       icon: Sun,
-      activities: ["Caminhadas", "Observação de aves", "Fotografia"],
+      activities: ["Caminhadas no Tejo", "Festivais locais", "Quintas e vinhas"],
       description: "Temperatura agradável, natureza em flor"
     },
     {
       season: "Verão",
       icon: Waves,
-      activities: ["Praias fluviais", "Festivais locais", "Noites ao ar livre"],
-      description: "Calor moderado, dias longos"
+      activities: ["Praias fluviais", "Praias da costa", "Festivais"],
+      description: "Proximidade ao litoral e praias do Tejo"
     },
     {
       season: "Outono",
       icon: TreePine,
-      activities: ["Vindimas", "Recolha de castanhas", "Trilhas"],
-      description: "Cores douradas, temperaturas amenas"
+      activities: ["Vindimas na região", "Caminhadas", "Gastronomia"],
+      description: "Cores douradas, tradições vinícolas"
     },
     {
       season: "Inverno",
       icon: Mountain,
-      activities: ["Serra da Estrela", "Lareira", "Gastronomia"],
-      description: "Aconchego, neve na serra"
+      activities: ["Visitas culturais", "Proximidade a Lisboa", "Gastronomia"],
+      description: "Aconchego e património histórico"
     }
   ];
 
@@ -96,8 +96,8 @@ const Location = () => {
             Localização Privilegiada
           </h2>
           <p className="text-qdn-text-muted max-w-2xl mx-auto text-lg leading-relaxed">
-            No coração da Beira Baixa, rodeada pela natureza e rica em património histórico.
-            A localização ideal para explorar o melhor do interior de Portugal.
+            No coração do Ribatejo, às portas de Lisboa e rodeada por património histórico único.
+            A localização ideal para explorar o centro de Portugal e a sua rica herança cultural.
           </p>
         </div>
 
@@ -114,7 +114,7 @@ const Location = () => {
                   </h3>
                 </div>
                 <p className="text-qdn-text-muted">
-                  6060-101 Idanha-a-Nova, Castelo Branco
+                  Rua da Campina N°68, Vidigão Nascente, Santarém
                 </p>
               </div>
               
@@ -130,15 +130,15 @@ const Location = () => {
                 <div className="grid grid-cols-1 gap-3 text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-qdn-text-muted">Coordenadas:</span>
-                    <span className="text-qdn-primary font-medium">39.9167, -7.2333</span>
+                    <span className="text-qdn-primary font-medium">39.2369, -8.6879</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-qdn-text-muted">Altitude:</span>
-                    <span className="text-qdn-primary font-medium">245 metros</span>
+                    <span className="text-qdn-primary font-medium">110 metros</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-qdn-text-muted">Clima:</span>
-                    <span className="text-qdn-primary font-medium">Mediterrânico</span>
+                    <span className="text-qdn-primary font-medium">Mediterrânico continental</span>
                   </div>
                 </div>
                 
@@ -150,15 +150,15 @@ const Location = () => {
                   <div className="space-y-1 text-xs text-qdn-text-muted">
                     <div className="flex justify-between">
                       <span>Lisboa:</span>
-                      <span>200 km</span>
+                      <span>80 km</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Porto:</span>
-                      <span>280 km</span>
+                      <span>300 km</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Coimbra:</span>
-                      <span>150 km</span>
+                      <span>120 km</span>
                     </div>
                   </div>
                 </div>
@@ -230,15 +230,15 @@ const Location = () => {
               <ul className="space-y-2 text-qdn-text-muted text-xs">
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Supermercado: Idanha-a-Nova (12 km)</span>
+                  <span>Supermercado: Centro de Santarém (6 km)</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Centro de saúde: Idanha-a-Nova</span>
+                  <span>Centro de saúde: Hospital de Santarém (7 km)</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Farmácia 24h: Castelo Branco</span>
+                  <span>Farmácia: Centro de Santarém</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
@@ -296,7 +296,7 @@ const Location = () => {
             </div>
             <h4 className="font-semibold text-qdn-text-dark mb-2">Natureza Preservada</h4>
             <p className="text-qdn-text-muted text-sm">
-              Rodeada por paisagens intocadas e trilhas que revelam a beleza natural da Beira Baixa.
+              Rodeada pela planície ribatejana e pelos trilhos junto ao Tejo, a natureza preservada do centro de Portugal.
             </p>
           </div>
           
@@ -306,7 +306,7 @@ const Location = () => {
             </div>
             <h4 className="font-semibold text-qdn-text-dark mb-2">Património Histórico</h4>
             <p className="text-qdn-text-muted text-sm">
-              A poucos minutos das famosas Aldeias Históricas, verdadeiros tesouros da cultura portuguesa.
+              Próxima dos Mosteiros da Batalha e Alcobaça, e da vila medieval de Óbidos, tesouros do património nacional.
             </p>
           </div>
           

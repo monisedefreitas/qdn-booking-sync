@@ -15,7 +15,7 @@ const Footer = () => {
               moderno encontra a tranquilidade rural portuguesa.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-qdn-surface hover:text-white transition-colors">
+              <a href="https://instagram.com/quinta3nogueiras" className="text-qdn-surface hover:text-white transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="text-qdn-surface hover:text-white transition-colors">
@@ -43,18 +43,18 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-qdn-surface mt-0.5 flex-shrink-0" />
                 <span className="text-qdn-surface">
-                  Rua das Nogueiras, nº 123<br />
-                  1234-567 Localidade<br />
+                  Rua da Campina N°68<br />
+                  Vidigão Nascente, Santarém<br />
                   Portugal
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-qdn-surface" />
-                <span className="text-qdn-surface">+351 900 000 000</span>
+                <span className="text-qdn-surface">+351 966 960 101</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-qdn-surface" />
-                <span className="text-qdn-surface">info@quintadasnogueiras.pt</span>
+                <span className="text-qdn-surface">quintadas3nogueiras@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@ const Footer = () => {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/351900000000?text=Olá! Gostaria de reservar a Quinta das Nogueiras."
+        href="https://wa.me/351966960101?text=Olá! Gostaria de reservar a Quinta das Nogueiras."
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-40"
         aria-label="Contactar via WhatsApp"
       >

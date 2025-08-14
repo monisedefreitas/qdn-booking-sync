@@ -115,7 +115,7 @@ const Booking = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-qdn-border rounded-lg focus:ring-2 focus:ring-qdn-primary focus:border-transparent transition-all"
-                  placeholder="+351 900 000 000"
+                  placeholder="+351 966 960 101"
                 />
               </div>
 
@@ -239,11 +239,11 @@ const Booking = () => {
               </p>
               <div className="space-y-3">
                 <a 
-                  href="https://wa.me/351900000000?text=Olá! Gostaria de reservar a Quinta das Nogueiras."
+                  href="https://wa.me/351966960101?text=Olá! Gostaria de reservar a Quinta das Nogueiras."
                   className="flex items-center space-x-3 p-4 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors"
                 >
                   <MessageCircle className="w-5 h-5 text-green-600" />
-                  <span className="font-medium text-green-700">WhatsApp: +351 900 000 000</span>
+                  <span className="font-medium text-green-700">WhatsApp: +351 966 960 101</span>
                 </a>
                 
                 <div className="text-center text-sm text-qdn-text-muted">
