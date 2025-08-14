@@ -1,5 +1,6 @@
-import { Car, Plane, Train, Mountain, Utensils, Camera, Sun, Waves, TreePine, Calendar, Compass } from "lucide-react";
+import { Car, Plane, Train, Mountain, Utensils, Camera, Calendar, Compass, TreePine, Waves } from "lucide-react";
 import InteractiveMap from "./InteractiveMap";
+import SeasonalActivitiesGuide from "./SeasonalActivitiesGuide";
 
 const Location = () => {
   const attractions = [
@@ -86,32 +87,6 @@ const Location = () => {
     }
   ];
 
-  const seasonalActivities = [
-    {
-      season: "Primavera",
-      icon: Sun,
-      activities: ["Caminhadas no Tejo", "Festivais locais", "Quintas e vinhas"],
-      description: "Temperatura agradável, natureza em flor"
-    },
-    {
-      season: "Verão",
-      icon: Waves,
-      activities: ["Praias fluviais", "Praias da costa", "Festivais"],
-      description: "Proximidade ao litoral e praias do Tejo"
-    },
-    {
-      season: "Outono",
-      icon: TreePine,
-      activities: ["Vindimas na região", "Caminhadas", "Gastronomia"],
-      description: "Cores douradas, tradições vinícolas"
-    },
-    {
-      season: "Inverno",
-      icon: Mountain,
-      activities: ["Visitas culturais", "Proximidade a Lisboa", "Gastronomia"],
-      description: "Aconchego e património histórico"
-    }
-  ];
 
   return (
     <section id="localizacao" className="py-24 bg-qdn-surface">
@@ -234,29 +209,11 @@ const Location = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {seasonalActivities.map((season, index) => (
-              <div key={index} className={`card-qdn text-center hover:shadow-lg transition-all duration-300 fade-in-up stagger-${index + 4}`}>
-                <div className="w-16 h-16 bg-qdn-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <season.icon className="w-8 h-8 text-qdn-primary" />
-                </div>
-                
-                <h4 className="font-semibold text-qdn-text-dark mb-3">{season.season}</h4>
-                
-                <div className="space-y-2 mb-4">
-                  {season.activities.map((activity, actIndex) => (
-                    <div key={actIndex} className="chip-qdn text-xs">
-                      {activity}
-                    </div>
-                  ))}
-                </div>
-                
-                <p className="text-qdn-text-muted text-sm leading-relaxed">
-                  {season.description}
-                </p>
-              </div>
-            ))}
-          </div>
+          {/* Intelligent Seasonal Activities */}
+          <SeasonalActivitiesGuide 
+            checkIn={new Date().toISOString().split('T')[0]} 
+            checkOut={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]} 
+          />
         </div>
 
         {/* Location Highlights */}
