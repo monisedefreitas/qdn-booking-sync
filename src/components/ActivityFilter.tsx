@@ -16,7 +16,7 @@ const filterOptions = [
   { id: "eventos", label: "Eventos", color: "bg-pink-100 text-pink-700 border-pink-200" },
 ];
 
-export const ActivityFilter = ({ selectedFilters, onFiltersChange, className }: ActivityFilterProps) => {
+const ActivityFilter = ({ selectedFilters, onFiltersChange, className }: ActivityFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleFilter = (filterId: string) => {
@@ -78,3 +78,5 @@ export const ActivityFilter = ({ selectedFilters, onFiltersChange, className }: 
     </div>
   );
 };
+
+export default ActivityFilter;

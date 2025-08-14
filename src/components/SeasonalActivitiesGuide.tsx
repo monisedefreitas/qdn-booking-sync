@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Calendar, Thermometer, Camera, Package, Sun, Cloud, CloudRain, Snowflake } from "lucide-react";
 import { useSeasonDetection } from "@/hooks/useSeasonDetection";
-import { ActivityFilter } from "./ActivityFilter";
+import ActivityFilter from "./ActivityFilter";
 
 interface SeasonalActivitiesGuideProps {
   checkIn: string;
