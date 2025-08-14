@@ -253,26 +253,27 @@ const Booking = () => {
             </div>
 
             {/* Booking Benefits */}
-            <div className="card-qdn bg-qdn-primary/5 border-qdn-primary/20">
-              <h3 className="text-lg font-semibold text-qdn-primary mb-4">
+            <div className="card-qdn bg-gradient-to-br from-qdn-primary/5 to-qdn-primary/10 border-qdn-primary/20 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-qdn-primary/5 rounded-full -translate-y-10 translate-x-10"></div>
+              <h3 className="text-lg font-semibold text-qdn-primary mb-6">
                 Vantagens da Reserva Direta
               </h3>
-              <ul className="space-y-2 text-qdn-text-dark">
-                <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-qdn-primary rounded-full"></div>
-                  <span>Melhor preço garantido</span>
+              <ul className="space-y-4 text-qdn-text-dark">
+                <li className="flex items-center space-x-3 group">
+                  <div className="w-3 h-3 bg-qdn-primary rounded-full group-hover:scale-125 transition-transform"></div>
+                  <span className="group-hover:text-qdn-primary transition-colors">Melhor preço garantido</span>
                 </li>
-                <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-qdn-primary rounded-full"></div>
-                  <span>Atendimento personalizado</span>
+                <li className="flex items-center space-x-3 group">
+                  <div className="w-3 h-3 bg-qdn-primary rounded-full group-hover:scale-125 transition-transform"></div>
+                  <span className="group-hover:text-qdn-primary transition-colors">Atendimento personalizado</span>
                 </li>
-                <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-qdn-primary rounded-full"></div>
-                  <span>Flexibilidade nas condições</span>
+                <li className="flex items-center space-x-3 group">
+                  <div className="w-3 h-3 bg-qdn-primary rounded-full group-hover:scale-125 transition-transform"></div>
+                  <span className="group-hover:text-qdn-primary transition-colors">Flexibilidade nas condições</span>
                 </li>
-                <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-qdn-primary rounded-full"></div>
-                  <span>Kit de boas-vindas incluído</span>
+                <li className="flex items-center space-x-3 group">
+                  <div className="w-3 h-3 bg-qdn-primary rounded-full group-hover:scale-125 transition-transform"></div>
+                  <span className="group-hover:text-qdn-primary transition-colors">Kit de boas-vindas incluído</span>
                 </li>
               </ul>
             </div>

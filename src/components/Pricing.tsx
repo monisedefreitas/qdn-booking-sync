@@ -43,47 +43,51 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-20 bg-qdn-white">
+    <section className="py-24 bg-qdn-white">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="text-center mb-12">
-          <h2 className="mb-4 text-qdn-text-dark">
+        <div className="text-center mb-16 fade-in-up">
+          <h2 className="mb-6 text-qdn-text-dark">
             Tabela de Valores
           </h2>
-          <p className="text-qdn-text-muted max-w-2xl mx-auto">
+          <p className="text-qdn-text-muted max-w-2xl mx-auto text-lg leading-relaxed">
             Preços transparentes para todas as épocas do ano. 
             Reserva direta com as melhores condições.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {pricingTiers.map((tier, index) => (
             <div 
               key={index} 
-              className={`card-qdn relative ${tier.featured ? 'ring-2 ring-qdn-primary' : ''}`}
+              className={`card-qdn relative group transition-all duration-300 hover:scale-105 fade-in-up stagger-${index + 1} ${
+                tier.featured 
+                  ? 'ring-2 ring-qdn-primary shadow-xl' 
+                  : 'hover:shadow-xl hover:border-qdn-primary/30'
+              }`}
             >
               {tier.featured && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-qdn-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-gradient-to-r from-qdn-primary to-qdn-primary-hover text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
                     Mais Popular
                   </span>
                 </div>
               )}
               
               <div className="text-center">
-                <h3 className="text-xl font-semibold text-qdn-text-dark mb-2">
+                <h3 className="text-xl font-semibold text-qdn-text-dark mb-3">
                   {tier.season}
                 </h3>
-                <p className="text-qdn-text-muted mb-4">{tier.period}</p>
+                <p className="text-qdn-text-muted mb-6 font-medium">{tier.period}</p>
                 
-                <div className="mb-4">
-                  <span className="text-4xl font-bold text-qdn-primary">€{tier.price}</span>
-                  <span className="text-qdn-text-muted">/noite</span>
+                <div className="mb-6">
+                  <span className="text-5xl font-bold text-qdn-primary">€{tier.price}</span>
+                  <span className="text-qdn-text-muted text-lg">/noite</span>
                 </div>
                 
-                <p className="text-sm text-qdn-text-muted mb-6">{tier.description}</p>
+                <p className="text-qdn-text-muted mb-8 leading-relaxed">{tier.description}</p>
                 
-                <a href="#reservas" className="btn-qdn-primary w-full">
+                <a href="#reservas" className={`${tier.featured ? 'btn-qdn-primary' : 'btn-qdn-secondary'} w-full group-hover:scale-105 transition-transform`}>
                   Verificar Disponibilidade
                 </a>
               </div>
