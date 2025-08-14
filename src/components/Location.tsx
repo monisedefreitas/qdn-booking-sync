@@ -101,96 +101,119 @@ const Location = () => {
           </p>
         </div>
 
-        {/* Main 3-Column Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Column 1: Interactive Map */}
-          <div className="fade-in-left">
-            <InteractiveMap />
-          </div>
-
-          {/* Column 2: Attractions */}
-          <div className="fade-in-up stagger-1">
-            <div className="card-qdn h-fit">
-              <div className="flex items-center space-x-3 mb-6">
-                <Compass className="w-6 h-6 text-qdn-primary" />
-                <h3 className="text-qdn-text-dark">
-                  Pontos de Interesse
-                </h3>
-              </div>
-              <div className="space-y-3">
-                {attractions.map((attraction, index) => (
-                  <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-qdn-surface transition-colors group">
-                    <div className="w-10 h-10 bg-qdn-surface group-hover:bg-qdn-primary rounded-full flex items-center justify-center flex-shrink-0 transition-colors">
-                      <attraction.icon className="w-5 h-5 text-qdn-primary group-hover:text-qdn-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <h4 className="font-semibold text-qdn-text-dark text-sm truncate">{attraction.name}</h4>
-                        <span className="text-xs text-qdn-primary font-medium flex-shrink-0 ml-2">{attraction.distance}</span>
-                      </div>
-                      <p className="text-qdn-text-muted text-xs leading-relaxed">{attraction.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        {/* Main Content Grid - Improved Layout */}
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+          {/* Interactive Map - Takes full height on large screens */}
+          <div className="lg:col-span-1 xl:col-span-1 fade-in-left">
+            <div className="h-full">
+              <InteractiveMap />
             </div>
           </div>
 
-          {/* Column 3: Transport & Local Tips */}
-          <div className="space-y-6 fade-in-right stagger-2">
-            {/* How to Get Here */}
-            <div className="card-qdn">
-              <div className="flex items-center space-x-3 mb-6">
-                <Car className="w-6 h-6 text-qdn-primary" />
-                <h3 className="text-qdn-text-dark">
-                  Como Chegar
-                </h3>
-              </div>
-              <div className="space-y-3">
-                {transportInfo.map((transport, index) => (
-                  <div key={index} className="flex items-start space-x-3 p-3 border border-qdn-border rounded-lg">
-                    <div className="w-8 h-8 bg-qdn-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <transport.icon className="w-4 h-4 text-qdn-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <h4 className="font-semibold text-qdn-text-dark text-sm">{transport.title}</h4>
-                        <span className="text-xs text-qdn-primary font-medium">{transport.time}</span>
+          {/* Attractions & Info - Better distributed */}
+          <div className="lg:col-span-1 xl:col-span-2 space-y-8 fade-in-right">
+            {/* Attractions Grid */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Pontos de Interesse */}
+              <div className="card-qdn h-fit">
+                <div className="flex items-center space-x-3 mb-6">
+                  <Compass className="w-6 h-6 text-qdn-primary" />
+                  <h3 className="text-qdn-text-dark">
+                    Pontos de Interesse
+                  </h3>
+                </div>
+                <div className="space-y-3">
+                  {attractions.slice(0, 6).map((attraction, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-qdn-surface transition-colors group">
+                      <div className="w-8 h-8 bg-qdn-surface group-hover:bg-qdn-primary rounded-full flex items-center justify-center flex-shrink-0 transition-colors">
+                        <attraction.icon className="w-4 h-4 text-qdn-primary group-hover:text-qdn-white" />
                       </div>
-                      <p className="text-qdn-text-muted text-xs">{transport.details}</p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1">
+                          <h4 className="font-semibold text-qdn-text-dark text-sm truncate">{attraction.name}</h4>
+                          <span className="text-xs text-qdn-primary font-medium flex-shrink-0 ml-2">{attraction.distance}</span>
+                        </div>
+                        <p className="text-qdn-text-muted text-xs leading-relaxed">{attraction.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* More attractions in a compact format */}
+                {attractions.length > 6 && (
+                  <div className="mt-4 pt-4 border-t border-qdn-border">
+                    <div className="grid grid-cols-2 gap-2">
+                      {attractions.slice(6).map((attraction, index) => (
+                        <div key={index + 6} className="flex items-center space-x-2 p-2 rounded hover:bg-qdn-surface transition-colors">
+                          <attraction.icon className="w-3 h-3 text-qdn-primary flex-shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs font-medium text-qdn-text-dark truncate">{attraction.name}</p>
+                            <p className="text-xs text-qdn-primary">{attraction.distance}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                ))}
+                )}
               </div>
-            </div>
 
-            {/* Local Tips */}
-            <div className="card-qdn-subtle">
-              <h4 className="font-semibold text-qdn-primary mb-4 text-sm">
-                Informações Úteis
-              </h4>
-              <ul className="space-y-2 text-qdn-text-muted text-xs">
-                <li className="flex items-start space-x-2">
-                  <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Supermercado: Centro de Santarém (6 km)</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Hospital: Hospital de Santarém (7 km)</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Farmácia: Centro de Santarém (6 km)</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>Gasolineiras: A1 e centro (10 km)</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                  <span>WiFi gratuito em toda a propriedade</span>
-                </li>
-              </ul>
+              {/* Transport & Local Tips */}
+              <div className="space-y-6">
+                {/* How to Get Here */}
+                <div className="card-qdn">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <Car className="w-6 h-6 text-qdn-primary" />
+                    <h3 className="text-qdn-text-dark">
+                      Como Chegar
+                    </h3>
+                  </div>
+                  <div className="space-y-3">
+                    {transportInfo.map((transport, index) => (
+                      <div key={index} className="flex items-start space-x-3 p-3 border border-qdn-border rounded-lg">
+                        <div className="w-8 h-8 bg-qdn-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                          <transport.icon className="w-4 h-4 text-qdn-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-1">
+                            <h4 className="font-semibold text-qdn-text-dark text-sm">{transport.title}</h4>
+                            <span className="text-xs text-qdn-primary font-medium">{transport.time}</span>
+                          </div>
+                          <p className="text-qdn-text-muted text-xs">{transport.details}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Local Tips */}
+                <div className="card-qdn-subtle">
+                  <h4 className="font-semibold text-qdn-primary mb-4 text-sm">
+                    Informações Úteis
+                  </h4>
+                  <ul className="space-y-2 text-qdn-text-muted text-xs">
+                    <li className="flex items-start space-x-2">
+                      <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                      <span>Supermercado: Centro de Santarém (6 km)</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                      <span>Hospital: Hospital de Santarém (7 km)</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                      <span>Farmácia: Centro de Santarém (6 km)</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                      <span>Gasolineiras: A1 e centro (10 km)</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="w-1.5 h-1.5 bg-qdn-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                      <span>WiFi gratuito em toda a propriedade</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

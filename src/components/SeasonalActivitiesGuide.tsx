@@ -1,4 +1,4 @@
-import { Calendar, Thermometer, Camera, Package } from "lucide-react";
+import { Calendar, Thermometer, Camera, Package, Sun, Cloud, CloudRain, Snowflake } from "lucide-react";
 import { useSeasonDetection } from "@/hooks/useSeasonDetection";
 
 interface SeasonalActivitiesGuideProps {
@@ -9,13 +9,21 @@ interface SeasonalActivitiesGuideProps {
 const SeasonalActivitiesGuide = ({ checkIn, checkOut }: SeasonalActivitiesGuideProps) => {
   const seasonInfo = useSeasonDetection(checkIn, checkOut);
 
+  const getWeatherIcon = (temp: string) => {
+    const temperature = parseInt(temp);
+    if (temperature >= 25) return <Sun className="w-6 h-6 text-yellow-500" />;
+    if (temperature >= 15) return <Cloud className="w-6 h-6 text-gray-500" />;
+    if (temperature >= 5) return <CloudRain className="w-6 h-6 text-blue-500" />;
+    return <Snowflake className="w-6 h-6 text-blue-300" />;
+  };
+
   if (!seasonInfo) {
     return (
       <div className="card-qdn text-center">
         <Calendar className="w-12 h-12 text-qdn-muted mx-auto mb-4" />
-        <h3 className="text-qdn-text-dark mb-2">Selecione as suas datas</h3>
+        <h3 className="text-qdn-text-dark mb-2">Atividades por Estação</h3>
         <p className="text-qdn-text-muted">
-          Escolha as datas de check-in para ver atividades personalizadas para a estação.
+          Descubra as melhores atividades para cada época do ano na região de Santarém.
         </p>
       </div>
     );
@@ -70,8 +78,11 @@ const SeasonalActivitiesGuide = ({ checkIn, checkOut }: SeasonalActivitiesGuideP
               <h4 className="font-semibold text-qdn-text-dark text-sm">Temperatura Esperada</h4>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-qdn-primary mb-1">
-                {seasonInfo.temperature.avg}
+              <div className="flex items-center justify-center space-x-3 mb-2">
+                {getWeatherIcon(seasonInfo.temperature.avg)}
+                <div className="text-2xl font-bold text-qdn-primary">
+                  {seasonInfo.temperature.avg}
+                </div>
               </div>
               <div className="text-xs text-qdn-text-muted">
                 Mín: {seasonInfo.temperature.min}°C | Máx: {seasonInfo.temperature.max}°C

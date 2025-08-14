@@ -66,10 +66,6 @@ const Booking = () => {
           </p>
         </div>
 
-        {/* Seasonal Activities Guide */}
-        <div className="mb-12">
-          <SeasonalActivitiesGuide checkIn={formData.checkIn} checkOut={formData.checkOut} />
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Booking Form */}

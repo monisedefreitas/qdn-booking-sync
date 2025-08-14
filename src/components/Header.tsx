@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import WeatherWidget from "./WeatherWidget";
+import logo3Nogueiras from "@/assets/logo-3-nogueiras.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,8 +21,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="text-xl font-semibold text-qdn-text-dark">
-              Quinta das Nogueiras
+            <a href="#home" className="flex items-center space-x-3">
+              <img src={logo3Nogueiras} alt="Quinta das 3 Nogueiras" className="h-10 w-auto" />
+              <span className="text-xl font-semibold text-qdn-text-dark hidden sm:block">
+                Quinta das 3 Nogueiras
+              </span>
             </a>
           </div>
 
@@ -37,8 +42,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Weather & CTA */}
+          <div className="hidden md:flex items-center space-x-4">
+            <WeatherWidget />
             <a href="#reservas" className="btn-qdn-primary">
               Reservar Agora
             </a>
