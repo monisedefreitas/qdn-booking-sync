@@ -1,40 +1,56 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import heroImage from "/src/assets/hero-quinta-das-nogueiras.jpg";
+import interiorBedroom from "/src/assets/interior-bedroom.jpg";
+import interiorLivingRoom from "/src/assets/interior-living-room.jpg";
+import interiorKitchen from "/src/assets/interior-kitchen.jpg";
+import exteriorGarden from "/src/assets/exterior-garden.jpg";
+import localGastronomy from "/src/assets/local-gastronomy.jpg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Placeholder images - in production these would be actual photos
+  // Enhanced gallery with local generated images
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
-      alt: "Exterior da Quinta das Nogueiras",
+      src: heroImage,
+      alt: "Vista exterior da Quinta das 3 Nogueiras",
       category: "Exterior"
     },
     {
-      src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
-      alt: "Sala de estar",
+      src: interiorLivingRoom,
+      alt: "Sala de estar acolhedora com lareira",
       category: "Interior"
     },
     {
-      src: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
-      alt: "Quarto principal",
+      src: interiorBedroom,
+      alt: "Quarto principal com decoração tradicional",
       category: "Quartos"
     },
     {
-      src: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=800&h=600&fit=crop",
-      alt: "Cozinha equipada",
+      src: interiorKitchen,
+      alt: "Cozinha equipada com estilo rústico moderno",
+      category: "Interior"
+    },
+    {
+      src: exteriorGarden,
+      alt: "Jardim com nogueiras e área de refeições",
+      category: "Exterior"
+    },
+    {
+      src: localGastronomy,
+      alt: "Gastronomia tradicional portuguesa",
+      category: "Gastronomia"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop",
+      alt: "Casa de banho moderna",
       category: "Interior"
     },
     {
       src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
-      alt: "Jardim e área externa",
-      category: "Exterior"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop",
-      alt: "Casa de banho",
-      category: "Interior"
+      alt: "Paisagem rural envolvente",
+      category: "Paisagem"
     },
   ];
 
@@ -59,7 +75,7 @@ const Gallery = () => {
           </h2>
           <p className="text-qdn-text-muted max-w-2xl mx-auto text-lg leading-relaxed">
             Descubra os espaços acolhedores e as paisagens deslumbrantes 
-            que fazem da Quinta das Nogueiras um destino único.
+            que fazem da Quinta das 3 Nogueiras um destino único.
           </p>
         </div>
 

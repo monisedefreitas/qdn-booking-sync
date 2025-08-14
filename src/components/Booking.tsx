@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Calendar, Users, MessageCircle, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import SeasonalActivitiesGuide from "./SeasonalActivitiesGuide";
+import { DateRangePicker } from "./DateRangePicker";
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -19,10 +19,21 @@ const Booking = () => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.name || !formData.email || !formData.checkIn || !formData.checkOut) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.checkIn || !formData.checkOut) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha todos os campos obrigatórios.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Portuguese phone validation
+    const phoneRegex = /^(\+351|351)?[0-9]{9}$/;
+    if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+      toast({
+        title: "Número de telemóvel inválido",
+        description: "Por favor, introduza um número de telemóvel português válido.",
         variant: "destructive"
       });
       return;
@@ -109,7 +120,7 @@ const Booking = () => {
 
               <div>
                 <label className="block text-sm font-medium text-qdn-text-dark mb-2">
-                  Telefone / WhatsApp
+                  Telemóvel / WhatsApp *
                 </label>
                 <input
                   type="tel"
@@ -118,41 +129,29 @@ const Booking = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-qdn-border rounded-lg focus:ring-2 focus:ring-qdn-primary focus:border-transparent transition-all"
                   placeholder="+351 966 960 101"
+                  required
                 />
+                <p className="text-xs text-qdn-text-muted mt-1">
+                  Formato: +351 9XX XXX XXX ou 9XX XXX XXX
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-qdn-text-dark mb-2">
-                    Check-in *
+                    Datas da Estadia *
                   </label>
-                  <input
-                    type="date"
-                    name="checkIn"
-                    value={formData.checkIn}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-qdn-border rounded-lg focus:ring-2 focus:ring-qdn-primary focus:border-transparent transition-all"
-                    required
+                  <DateRangePicker
+                    checkIn={formData.checkIn}
+                    checkOut={formData.checkOut}
+                    onCheckInChange={(date) => setFormData(prev => ({ ...prev, checkIn: date }))}
+                    onCheckOutChange={(date) => setFormData(prev => ({ ...prev, checkOut: date }))}
                   />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-qdn-text-dark mb-2">
-                    Check-out *
-                  </label>
-                  <input
-                    type="date"
-                    name="checkOut"
-                    value={formData.checkOut}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-qdn-border rounded-lg focus:ring-2 focus:ring-qdn-primary focus:border-transparent transition-all"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-qdn-text-dark mb-2">
-                    Hóspedes
+                    Número de Hóspedes
                   </label>
                   <select
                     name="guests"

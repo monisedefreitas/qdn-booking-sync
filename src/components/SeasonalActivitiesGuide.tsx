@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Calendar, Thermometer, Camera, Package, Sun, Cloud, CloudRain, Snowflake } from "lucide-react";
 import { useSeasonDetection } from "@/hooks/useSeasonDetection";
+import { ActivityFilter } from "./ActivityFilter";
 
 interface SeasonalActivitiesGuideProps {
   checkIn: string;
@@ -8,6 +10,7 @@ interface SeasonalActivitiesGuideProps {
 
 const SeasonalActivitiesGuide = ({ checkIn, checkOut }: SeasonalActivitiesGuideProps) => {
   const seasonInfo = useSeasonDetection(checkIn, checkOut);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const getWeatherIcon = (temp: string) => {
     const temperature = parseInt(temp);
@@ -51,6 +54,12 @@ const SeasonalActivitiesGuide = ({ checkIn, checkOut }: SeasonalActivitiesGuideP
         </p>
       </div>
 
+      <ActivityFilter 
+        selectedFilters={selectedFilters} 
+        onFiltersChange={setSelectedFilters}
+        className="mb-6"
+      />
+
       {/* Activities Grid */}
       <div className="grid md:grid-cols-2 gap-6">
         {/* Activities */}
@@ -60,12 +69,24 @@ const SeasonalActivitiesGuide = ({ checkIn, checkOut }: SeasonalActivitiesGuideP
             <h4 className="font-semibold text-qdn-text-dark">Atividades Recomendadas</h4>
           </div>
           <div className="space-y-2">
-            {seasonInfo.activities.map((activity, index) => (
-              <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-qdn-surface transition-colors">
-                <div className="w-2 h-2 bg-qdn-primary rounded-full"></div>
-                <span className="text-qdn-text-muted">{activity}</span>
-              </div>
-            ))}
+            {seasonInfo.activities
+              .filter(activity => {
+                if (selectedFilters.length === 0) return true;
+                return selectedFilters.some(filter => 
+                  activity.toLowerCase().includes(filter) ||
+                  (filter === "gastronomia" && (activity.includes("gastronómica") || activity.includes("vinho") || activity.includes("culinár"))) ||
+                  (filter === "natureza" && (activity.includes("caminhada") || activity.includes("bicicleta") || activity.includes("observação") || activity.includes("jardins"))) ||
+                  (filter === "cultura" && (activity.includes("museus") || activity.includes("património") || activity.includes("história") || activity.includes("mosteiro"))) ||
+                  (filter === "desporto" && (activity.includes("bicicleta") || activity.includes("caminhada") || activity.includes("ativ"))) ||
+                  (filter === "eventos" && (activity.includes("festival") || activity.includes("feira") || activity.includes("evento")))
+                );
+              })
+              .map((activity, index) => (
+                <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-qdn-surface transition-colors">
+                  <div className="w-2 h-2 bg-qdn-primary rounded-full"></div>
+                  <span className="text-qdn-text-muted">{activity}</span>
+                </div>
+              ))}
           </div>
         </div>
 
@@ -78,13 +99,16 @@ const SeasonalActivitiesGuide = ({ checkIn, checkOut }: SeasonalActivitiesGuideP
               <h4 className="font-semibold text-qdn-text-dark text-sm">Temperatura Esperada</h4>
             </div>
             <div className="text-center">
-              <div className="flex items-center justify-center space-x-3 mb-2">
-                {getWeatherIcon(seasonInfo.temperature.avg)}
+              <div className="flex items-center justify-center space-x-3 mb-3">
+                <div className="relative">
+                  {getWeatherIcon(seasonInfo.temperature.avg)}
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-qdn-primary/20 rounded-full animate-pulse"></div>
+                </div>
                 <div className="text-2xl font-bold text-qdn-primary">
-                  {seasonInfo.temperature.avg}
+                  {seasonInfo.temperature.avg}°C
                 </div>
               </div>
-              <div className="text-xs text-qdn-text-muted">
+              <div className="text-xs text-qdn-text-muted bg-qdn-white p-2 rounded-lg">
                 Mín: {seasonInfo.temperature.min}°C | Máx: {seasonInfo.temperature.max}°C
               </div>
             </div>

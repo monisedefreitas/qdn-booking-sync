@@ -9,7 +9,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold mb-4">Quinta das 3 Nogueiras</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img src="/src/assets/logo-3-nogueiras.png" alt="Quinta das 3 Nogueiras" className="w-10 h-10" />
+              <h3 className="text-2xl font-bold">Quinta das 3 Nogueiras</h3>
+            </div>
             <p className="text-qdn-surface mb-6 leading-relaxed">
               Refúgio autêntico entre nogueiras centenárias, onde o conforto 
               moderno encontra a tranquilidade rural portuguesa.
@@ -85,7 +88,7 @@ const Footer = () => {
               © {currentYear} Quinta das 3 Nogueiras. Todos os direitos reservados.
             </p>
             <p className="text-qdn-surface text-sm mt-2 md:mt-0">
-              Desenvolvido com 💚 para um turismo sustentável
+              Site desenvolvido pela <a href="https://casacriativami.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-dotted">Casa Criativa M&I</a>
             </p>
           </div>
         </div>

@@ -7,7 +7,7 @@ const Location = () => {
     {
       icon: Camera,
       name: "Igreja do Santíssimo Milagre",
-      distance: "4 km",
+      distance: "3 km",
       description: "Património religioso único no mundo"
     },
     {
@@ -31,37 +31,37 @@ const Location = () => {
     {
       icon: Mountain,
       name: "Mosteiro de Alcobaça",
-      distance: "55 km",
+      distance: "58 km",
       description: "Património Mundial UNESCO"
     },
     {
       icon: Mountain,
       name: "Mosteiro da Batalha",
-      distance: "45 km",
+      distance: "49 km",
       description: "Património Mundial UNESCO"
     },
     {
       icon: Camera,
       name: "Óbidos",
-      distance: "50 km",
+      distance: "52 km",
       description: "Vila medieval murada"
     },
     {
       icon: TreePine,
       name: "Fátima",
-      distance: "40 km",
+      distance: "42 km",
       description: "Santuário de peregrinação mundial"
     },
     {
       icon: Waves,
       name: "Nazaré",
-      distance: "70 km",
+      distance: "75 km",
       description: "Ondas gigantes e praia famosa"
     },
     {
       icon: Waves,
       name: "São Martinho do Porto",
-      distance: "65 km",
+      distance: "68 km",
       description: "Lagoa natural protegida"
     }
   ];
