@@ -19,6 +19,19 @@ export default {
 		},
 		extend: {
 			colors: {
+				// QDN Brand Colors
+				qdn: {
+					primary: 'hsl(var(--qdn-primary))',
+					'primary-hover': 'hsl(var(--qdn-primary-hover))',
+					surface: 'hsl(var(--qdn-surface))',
+					'surface-alt': 'hsl(var(--qdn-surface-alt))',
+					border: 'hsl(var(--qdn-border))',
+					muted: 'hsl(var(--qdn-muted))',
+					'text-dark': 'hsl(var(--qdn-text-dark))',
+					'text-muted': 'hsl(var(--qdn-text-muted))',
+					white: 'hsl(var(--qdn-white))',
+				},
+				// Tailwind compatibility
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
